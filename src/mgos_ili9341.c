@@ -77,7 +77,7 @@ static const uint8_t ILI9341_init[] = {
 // SPI -- Hardware Interface, function names start with ili9341_spi_
 // and are all declared static.
 static void ili9341_spi_write(const uint8_t *data, uint32_t size) {
-  struct mgos_spi *spi = mgos_spi_get_global();
+  struct mgos_spi *spi = mgos_spi_get_bus(1); // HSPI //mgos_spi_get_global();
 
   if (!spi) {
     LOG(LL_ERROR, ("SPI is disabled, set spi.enable=true"));
